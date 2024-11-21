@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/settings.css">
+    <title>Input Display</title>
+</head>
+
+<body>
+    <div id="inputDisplay">
+        <div id="cross" class="button"></div>
+        <div id="circle" class="button"></div>
+        <div id="square" class="button"></div>
+        <div id="triangle" class="button"></div>
+        <div id="l1" class="button shoulder"></div>
+        <div id="r1" class="button shoulder"></div>
+        <div id="l2" class="button shoulder"></div>
+        <div id="r2" class="button shoulder"></div>
+        <div id="select" class="button"></div>
+        <div id="start" class="button"></div>
+        <div id="dpad_up" class="button dpad"></div>
+        <div id="dpad_down" class="button dpad"></div>
+        <div id="dpad_left" class="button dpad"></div>
+        <div id="dpad_right" class="button dpad"></div>
+        <div id="ps" class="button"></div>
+        <div id="left_thumb" class="button thumb"></div>
+        <div id="right_thumb" class="button thumb"></div>
+    </div>
+    <div id="navbarButton"></div>
+    <div id="navbar" class="navbar hidden">
+        <ul>
+            <li class="tab-link active" data-tab="settingsTab" onclick="openTab(event, 'settingsTab')">Settings</li>
+            <li class="tab-link" data-tab="buttonMapping" onclick="openTab(event, 'buttonMapping')">Button Mapping</li>
+            <li class="tab-link" data-tab="profileTab" onclick="openTab(event, 'profileTab')">Layouts</li>
+            <li class="tab-link" data-tab="changelogs" onclick="openTab(event, 'changelogs')">Changelogs</li>
+            <li class="tab-link" data-tab="custom-assets" onclick="openTab(event, 'custom-assets')">Custom Assets</li>
+            <li class="tab-link" data-tab="tutorialTab" onclick="openTab(event, 'tutorialTab')">Guide</li>
+            <li class="tab-link" onclick="copyURL()">Copy URL</li>
+        </ul>
+    </div>
+    <div id="settingsPanel" class="panel hidden">
+        <div class="tab-content active" id="settingsTab">
+            <h2>Settings</h2>
+            <div>
+                <label for="BackgroundColor">Background Color:</label>
+                <input type="color" id="BackgroundColor" value="#00ffff" />
+            </div>
+            <div>
+                <label for="dropShadowColor">Drop Shadow Color:</label>
+                <input type="color" id="dropShadowColor" value="#00ffff" />
+            </div>
+            <div>
+                <label for="dropShadowOpacity">Drop Shadow Opacity:</label>
+                <input type="range" id="dropShadowOpacity" min="0" max="1" step="0.1" value="1" />
+            </div>
+            <div id="layoutOptions">
+                <label><input type="checkbox" id="lockLayout"> Lock Layout</label>
+            </div>
+            <div id="settingsMenu">
+                <label for="toggleBackground">Toggle Background Image</label>
+                <input type="checkbox" id="toggleBackground">
+            </div>
+            <div id="downloadMap">
+                <button id="savePositions">Save Positions</button>
+                <button id="uploadSettings">Upload Settings</button>
+                <input type="file" id="fileInput" accept="application/json" style="display: none;" />
+            </div>
+        </div>
+        <div class="tab-content hidden" id="buttonMapping">
+            <h2>Button Mapping</h2>
+            <div id="buttonMappingContainer">
+                <div class="mapping">
+                    <label for="mapTriangle">Triangle:</label>
+                    <select id="mapTriangle" class="button-map">
+                        <option value="triangle">Triangle</option>
+                        <option value="cross">Cross</option>
+                        <option value="circle">Circle</option>
+                        <option value="square">Square</option>
+                        <option value="l1">L1</option>
+                        <option value="r1">R1</option>
+                        <option value="l2">L2</option>
+                        <option value="r2">R2</option>
+                        <option value="select">Select</option>
+                        <option value="start">Start</option>
+                        <option value="left_thumb">Left Thumb</option>
+                        <option value="right_thumb">Right Thumb</option>
+                        <option value="dpad_up">D-Pad Up</option>
+                        <option value="dpad_down">D-Pad Down</option>
+                        <option value="dpad_left">D-Pad Left</option>
+                        <option value="dpad_right">D-Pad Right</option>
+                        <option value="ps">PS</option>
+                    </select>
+                </div>
+                <div class="mapping">
+                    <label for="mapCross">Cross:</label>
+                    <select id="mapCross" class="button-map">
+                        <option value="cross">Cross</option>
+                        <option value="triangle">Triangle</option>
+                        <option value="circle">Circle</option>
+                        <option value="square">Square</option>
+                        <option value="l1">L1</option>
+                        <option value="r1">R1</option>
+                        <option value="l2">L2</option>
+                        <option value="r2">R2</option>
+                        <option value="select">Select</option>
+                        <option value="start">Start</option>
+                        <option value="left_thumb">Left Thumb</option>
+                        <option value="right_thumb">Right Thumb</option>
+                        <option value="dpad_up">D-Pad Up</option>
+                        <option value="dpad_down">D-Pad Down</option>
+                        <option value="dpad_left">D-Pad Left</option>
+                        <option value="dpad_right">D-Pad Right</option>
+                        <option value="ps">PS</option>
+                    </select>
+                </div>
+                <div class="mapping">
+                    <label for="mapCircle">Circle:</label>
+                    <select id="mapCircle" class="button-map">
+                        <option value="circle">Circle</option>
+                        <option value="triangle">Triangle</option>
+                        <option value="cross">Cross</option>
+                        <option value="square">Square</option>
+                        <option value="l1">L1</option>
+                        <option value="r1">R1</option>
+                        <option value="l2">L2</option>
+                        <option value="r2">R2</option>
+                        <option value="select">Select</option>
+                        <option value="start">Start</option>
+                        <option value="left_thumb">Left Thumb</option>
+                        <option value="right_thumb">Right Thumb</option>
+                        <option value="dpad_up">D-Pad Up</option>
+                        <option value="dpad_down">D-Pad Down</option>
+                        <option value="dpad_left">D-Pad Left</option>
+                        <option value="dpad_right">D-Pad Right</option>
+                        <option value="ps">PS</option>
+                    </select>
+                </div>
+                <div class="mapping">
+                    <label for="mapSquare">Square:</label>
+                    <select id="mapSquare" class="button-map">
+                        <option value="square">Square</option>
+                        <option value="triangle">Triangle</option>
+                        <option value="cross">Cross</option>
+                        <option value="circle">Circle</option>
+                        <option value="l1">L1</option>
+                        <option value="r1">R1</option>
+                        <option value="l2">L2</option>
+                        <option value="r2">R2</option>
+                        <option value="select">Select</option>
+                        <option value="start">Start</option>
+                        <option value="left_thumb">Left Thumb</option>
+                        <option value="right_thumb">Right Thumb</option>
+                        <option value="dpad_up">D-Pad Up</option>
+                        <option value="dpad_down">D-Pad Down</option>
+                        <option value="dpad_left">D-Pad Left</option>
+                        <option value="dpad_right">D-Pad Right</option>
+                        <option value="ps">PS</option>
+                    </select>
+                </div>
+                <div class="mapping">
+                    <label for="mapL1">L1:</label>
+                    <select id="mapL1" class="button-map">
+                        <option value="l1">L1</option>
+                        <option value="triangle">Triangle</option>
+                        <option value="cross">Cross</option>
+                        <option value="circle">Circle</option>
+                        <option value="square">Square</option>
+                        <option value="r1">R1</option>
+                        <option value="l2">L2</option>
+                        <option value="r2">R2</option>
+                        <option value="select">Select</option>
+                        <option value="start">Start</option>
+                        <option value="left_thumb">Left Thumb</option>
+                        <option value="right_thumb">Right Thumb</option>
+                        <option value="dpad_up">D-Pad Up</option>
+                        <option value="dpad_down">D-Pad Down</option>
+                        <option value="dpad_left">D-Pad Left</option>
+                        <option value="dpad_right">D-Pad Right</option>
+                        <option value="ps">PS</option>
+                    </select>
+                </div>
+                <div class="mapping">
+                    <label for="mapR1">R1:</label>
+                    <select id="mapR1" class="button-map">
+                        <option value="r1">R1</option>
+                        <option value="triangle">Triangle</option>
+                        <option value="cross">Cross</option>
+                        <option value="circle">Circle</option>
+                        <option value="square">Square</option>
+                        <option value="l1">L1</option>
+                        <option value="l2">L2</option>
+                        <option value="r2">R2</option>
+                        <option value="select">Select</option>
+                        <option value="start">Start</option>
+                        <option value="left_thumb">Left Thumb</option>
+                        <option value="right_thumb">Right Thumb</option>
+                        <option value="dpad_up">D-Pad Up</option>
+                        <option value="dpad_down">D-Pad Down</option>
+                        <option value="dpad_left">D-Pad Left</option>
+                        <option value="dpad_right">D-Pad Right</option>
+                        <option value="ps">PS</option>
+                    </select>
+                </div>
+                <div class="mapping">
+                    <label for="mapL2">L2:</label>
+                    <select id="mapL2" class="button-map">
+                        <option value="l2">L2</option>
+                        <option value="triangle">Triangle</option>
+                        <option value="cross">Cross</option>
+                        <option value="circle">Circle</option>
+                        <option value="square">Square</option>
+                        <option value="l1">L1</option>
+                        <option value="r1">R1</option>
+                        <option value="r2">R2</option>
+                        <option value="select">Select</option>
+                        <option value="start">Start</option>
+                        <option value="left_thumb">Left Thumb</option>
+                        <option value="right_thumb">Right Thumb</option>
+                        <option value="dpad_up">D-Pad Up</option>
+                        <option value="dpad_down">D-Pad Down</option>
+                        <option value="dpad_left">D-Pad Left</option>
+                        <option value="dpad_right">D-Pad Right</option>
+                        <option value="ps">PS</option>
+                    </select>
+                </div>
+                <div class="mapping">
+                    <label for="mapR2">R2:</label>
+                    <select id="mapR2" class="button-map">
+                        <option value="r2">R2</option>
+                        <option value="triangle">Triangle</option>
+                        <option value="cross">Cross</option>
+                        <option value="circle">Circle</option>
+                        <option value="square">Square</option>
+                        <option value="l1">L1</option>
+                        <option value="r1">R1</option>
+                        <option value="l2">L2</option>
+                        <option value="select">Select</option>
+                        <option value="start">Start</option>
+                        <option value="left_thumb">Left Thumb</option>
+                        <option value="right_thumb">Right Thumb</option>
+                        <option value="dpad_up">D-Pad Up</option>
+                        <option value="dpad_down">D-Pad Down</option>
+                        <option value="dpad_left">D-Pad Left</option>
+                        <option value="dpad_right">D-Pad Right</option>
+                        <option value="ps">PS</option>
+                    </select>
+                </div>
+                <div class="mapping">
+                    <label for="mapSelect">Select:</label>
+                    <select id="mapSelect" class="button-map">
+                        <option value="select">Select</option>
+                        <option value="triangle">Triangle</option>
+                        <option value="cross">Cross</option>
+                        <option value="circle">Circle</option>
+                        <option value="square">Square</option>
+                        <option value="l1">L1</option>
+                        <option value="r1">R1</option>
+                        <option value="l2">L2</option>
+                        <option value="r2">R2</option>
+                        <option value="start">Start</option>
+                        <option value="left_thumb">Left Thumb</option>
+                        <option value="right_thumb">Right Thumb</option>
+                        <option value="dpad_up">D-Pad Up</option>
+                        <option value="dpad_down">D-Pad Down</option>
+                        <option value="dpad_left">D-Pad Left</option>
+                        <option value="dpad_right">D-Pad Right</option>
+                        <option value="ps">PS</option>
+                    </select>
+                </div>
+                <div class="mapping">
+                    <label for="mapStart">Start:</label>
+                    <select id="mapStart" class="button-map">
+                        <option value="start">Start</option>
+                        <option value="triangle">Triangle</option>
+                        <option value="cross">Cross</option>
+                        <option value="circle">Circle</option>
+                        <option value="square">Square</option>
+                        <option value="l1">L1</option>
+                        <option value="r1">R1</option>
+                        <option value="l2">L2</option>
+                        <option value="r2">R2</option>
+                        <option value="select">Select</option>
+                        <option value="left_thumb">Left Thumb</option>
+                        <option value="right_thumb">Right Thumb</option>
+                        <option value="dpad_up">D-Pad Up</option>
+                        <option value="dpad_down">D-Pad Down</option>
+                        <option value="dpad_left">D-Pad Left</option>
+                        <option value="dpad_right">D-Pad Right</option>
+                        <option value="ps">PS</option>
+                    </select>
+                </div>
+                <div class="mapping">
+                    <label for="mapLeftThumb">Left Thumb:</label>
+                    <select id="mapLeftThumb" class="button-map">
+                        <option value="left_thumb">Left Thumb</option>
+                        <option value="triangle">Triangle</option>
+                        <option value="cross">Cross</option>
+                        <option value="circle">Circle</option>
+                        <option value="square">Square</option>
+                        <option value="l1">L1</option>
+                        <option value="r1">R1</option>
+                        <option value="l2">L2</option>
+                        <option value="r2">R2</option>
+                        <option value="select">Select</option>
+                        <option value="start">Start</option>
+                        <option value="right_thumb">Right Thumb</option>
+                        <option value="dpad_up">D-Pad Up</option>
+                        <option value="dpad_down">D-Pad Down</option>
+                        <option value="dpad_left">D-Pad Left</option>
+                        <option value="dpad_right">D-Pad Right</option>
+                        <option value="ps">PS</option>
+                    </select>
+                </div>
+                <div class="mapping">
+                    <label for="mapRightThumb">Right Thumb:</label>
+                    <select id="mapRightThumb" class="button-map">
+                        <option value="right_thumb">Right Thumb</option>
+                        <option value="triangle">Triangle</option>
+                        <option value="cross">Cross</option>
+                        <option value="circle">Circle</option>
+                        <option value="square">Square</option>
+                        <option value="l1">L1</option>
+                        <option value="r1">R1</option>
+                        <option value="l2">L2</option>
+                        <option value="r2">R2</option>
+                        <option value="select">Select</option>
+                        <option value="start">Start</option>
+                        <option value="left_thumb">Left Thumb</option>
+                        <option value="dpad_up">D-Pad Up</option>
+                        <option value="dpad_down">D-Pad Down</option>
+                        <option value="dpad_left">D-Pad Left</option>
+                        <option value="dpad_right">D-Pad Right</option>
+                        <option value="ps">PS</option>
+                    </select>
+                </div>
+                <div class="mapping">
+                    <label for="mapDpadUp">D-Pad Up:</label>
+                    <select id="mapDpadUp" class="button-map">
+                        <option value="dpad_up">D-Pad Up</option>
+                        <option value="triangle">Triangle</option>
+                        <option value="cross">Cross</option>
+                        <option value="circle">Circle</option>
+                        <option value="square">Square</option>
+                        <option value="l1">L1</option>
+                        <option value="r1">R1</option>
+                        <option value="l2">L2</option>
+                        <option value="r2">R2</option>
+                        <option value="select">Select</option>
+                        <option value="start">Start</option>
+                        <option value="left_thumb">Left Thumb</option>
+                        <option value="right_thumb">Right Thumb</option>
+                        <option value="dpad_down">D-Pad Down</option>
+                        <option value="dpad_left">D-Pad Left</option>
+                        <option value="dpad_right">D-Pad Right</option>
+                        <option value="ps">PS</option>
+                    </select>
+                </div>
+                <div class="mapping">
+                    <label for="mapDpadDown">D-Pad Down:</label>
+                    <select id="mapDpadDown" class="button-map">
+                        <option value="dpad_down">D-Pad Down</option>
+                        <option value="triangle">Triangle</option>
+                        <option value="cross">Cross</option>
+                        <option value="circle">Circle</option>
+                        <option value="square">Square</option>
+                        <option value="l1">L1</option>
+                        <option value="r1">R1</option>
+                        <option value="l2">L2</option>
+                        <option value="r2">R2</option>
+                        <option value="select">Select</option>
+                        <option value="start">Start</option>
+                        <option value="left_thumb">Left Thumb</option>
+                        <option value="right_thumb">Right Thumb</option>
+                        <option value="dpad_up">D-Pad Up</option>
+                        <option value="dpad_left">D-Pad Left</option>
+                        <option value="dpad_right">D-Pad Right</option>
+                        <option value="ps">PS</option>
+                    </select>
+                </div>
+                <div class="mapping">
+                    <label for="mapDpadLeft">D-Pad Left:</label>
+                    <select id="mapDpadLeft" class="button-map">
+                        <option value="dpad_left">D-Pad Left</option>
+                        <option value="triangle">Triangle</option>
+                        <option value="cross">Cross</option>
+                        <option value="circle">Circle</option>
+                        <option value="square">Square</option>
+                        <option value="l1">L1</option>
+                        <option value="r1">R1</option>
+                        <option value="l2">L2</option>
+                        <option value="r2">R2</option>
+                        <option value="select">Select</option>
+                        <option value="start">Start</option>
+                        <option value="left_thumb">Left Thumb</option>
+                        <option value="right_thumb">Right Thumb</option>
+                        <option value="dpad_up">D-Pad Up</option>
+                        <option value="dpad_down">D-Pad Down</option>
+                        <option value="dpad_right">D-Pad Right</option>
+                        <option value="ps">PS</option>
+                    </select>
+                </div>
+                <div class="mapping">
+                    <label for="mapDpadRight">D-Pad Right:</label>
+                    <select id="mapDpadRight" class="button-map">
+                        <option value="dpad_right">D-Pad Right</option>
+                        <option value="triangle">Triangle</option>
+                        <option value="cross">Cross</option>
+                        <option value="circle">Circle</option>
+                        <option value="square">Square</option>
+                        <option value="l1">L1</option>
+                        <option value="r1">R1</option>
+                        <option value="l2">L2</option>
+                        <option value="r2">R2</option>
+                        <option value="select">Select</option>
+                        <option value="start">Start</option>
+                        <option value="left_thumb">Left Thumb</option>
+                        <option value="right_thumb">Right Thumb</option>
+                        <option value="dpad_up">D-Pad Up</option>
+                        <option value="dpad_down">D-Pad Down</option>
+                        <option value="dpad_left">D-Pad Left</option>
+                        <option value="ps">PS</option>
+                    </select>
+                </div>
+                <div class="mapping">
+                    <label for="mapPS">PS:</label>
+                    <select id="mapPS" class="button-map">
+                        <option value="ps">PS</option>
+                        <option value="triangle">Triangle</option>
+                        <option value="cross">Cross</option>
+                        <option value="circle">Circle</option>
+                        <option value="square">Square</option>
+                        <option value="l1">L1</option>
+                        <option value="r1">R1</option>
+                        <option value="l2">L2</option>
+                        <option value="r2">R2</option>
+                        <option value="select">Select</option>
+                        <option value="start">Start</option>
+                        <option value="left_thumb">Left Thumb</option>
+                        <option value="right_thumb">Right Thumb</option>
+                        <option value="dpad_up">D-Pad Up</option>
+                        <option value="dpad_down">D-Pad Down</option>
+                        <option value="dpad_left">D-Pad Left</option>
+                        <option value="dpad_right">D-Pad Right</option>
+                    </select>
+                </div>
+                <!-- Add mappings for other buttons similarly -->
+            </div>
+            <button id="saveMapping">Save Mapping</button>
+        </div>
+        <div class="tab-content hidden" id="profileTab">
+            <button id="setDefaultLayout">Set as Default</button>
+            <button id="createNewLayout">Create New Layout</button>
+            <select id="layoutDropdown">
+                <option value="">Select a layout</option>
+            </select>
+            <input type="text" id="layoutNameInput" placeholder="Enter layout name">
+            <div id="layoutContainer"></div>
+            <button id="saveLayout">Save Layout</button>
+            <p id="FilePathInfo">Layout file path: "\AppData\Roaming\ds4-input-display\layout.json"</p>
+            <p id="layoutInfo2">As of now only the settings such as background will be saved.</p>
+            <p id="layoutInfo2">More will be added soon.</p>
+            <!-- <button id="removeLayoutButton">Remove Layout</button> --> <!-- Not yet implemented -->
+        </div>
+        <div class="tab-content hidden" id="changelogs">
+            <ul class="changelogtext">
+                <li>[/] TBA</li>
+            </ul>
+        </div>
+        <div class="tab-content hidden" id="custom-assets">
+            <input type="file" id="customAssetInput" multiple>
+            <button id="saveConfig">Save Configuration</button>
+            <button id="downloadConfig">Download Configuration</button>
+            <input type="file" id="uploadConfig" accept=".json">
+        </div>
+        <footer>
+            Made by Mortis <br>
+            Made specifically for PlayStation controllers.
+        </footer>
+    </div>
+</body>
+<script src="js/settings.js"></script>
+<script src="js/navbar.js"></script>
+<script src="js/renderer.js"></script>"
+<script src="js/cookies.js"></script>
+
+</html>

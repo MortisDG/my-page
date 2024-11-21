@@ -1,0 +1,259 @@
+:root {
+  --background-color: rgb(36, 36, 36);
+}
+
+body {
+  background-color: var(--background-color);
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+footer {
+  font-size: 12px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  opacity: 0.5;
+}
+
+#infoText {
+  font-size: 14px;
+  color: #858585;
+  margin-top: 10px;
+}
+
+#inputDisplay {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50vw;
+  height: 100vh;
+  gap: 20px;
+  background-image: url("../assets/Shell.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: auto;
+}
+
+.button {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: auto;
+}
+
+#cross {
+  background-image: url("../assets/buttons/Cross.png");
+}
+
+#cross.pressed {
+  background-image: url("../assets/pressed/face/CrossPressed.png");
+}
+
+#circle {
+  background-image: url("../assets/buttons/Circle.png");
+}
+
+#circle.pressed {
+  background-image: url("../assets/pressed/face/CirclePressed.png");
+}
+
+#triangle {
+  background-image: url("../assets/buttons/Triangle.png");
+}
+
+#triangle.pressed {
+  background-image: url("../assets/pressed/face/TrianglePressed.png");
+}
+
+#square {
+  background-image: url("../assets/buttons/Square.png");
+}
+
+#square.pressed {
+  background-image: url("../assets/pressed/face/SquarePressed.png");
+}
+
+/* DPad */
+
+#dpad_up,
+#dpad_down,
+#dpad_left,
+#dpad_right {
+  width: 70px;
+  height: 70px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#dpad_up {
+  background-image: url("../assets/dpad/DPadUp.png");
+}
+
+#dpad_down {
+  background-image: url("../assets/dpad/DPadDown.png");
+}
+
+#dpad_left {
+  background-image: url("../assets/dpad/DPadLeft.png");
+}
+
+#dpad_right {
+  background-image: url("../assets/dpad/DPadRight.png");
+}
+
+#dpad_up.pressed {
+  background-image: url("../assets/pressed/dpad/DPadUpPressed.png");
+}
+
+#dpad_down.pressed {
+  background-image: url("../assets/pressed/dpad/DPadDownPressed.png");
+}
+
+#dpad_left.pressed {
+  background-image: url("../assets/pressed/dpad/DPadLeftPressed.png");
+}
+
+#dpad_right.pressed {
+  background-image: url("../assets/pressed/dpad/DPadRightPressed.png");
+}
+
+/* Pressed Button Function */
+
+:root {
+  --drop-shadow-color: rgb(38, 0, 255);
+  --drop-shadow-opacity: 0.5;
+}
+
+.dpad.pressed,
+.button.pressed {
+  filter: drop-shadow(
+    0 0 10px rgba(var(--drop-shadow-color), var(--drop-shadow-opacity))
+  );
+  transform: scale(0.95);
+}
+
+/* Joystick */
+
+#left_thumb,
+#right_thumb {
+  width: 140px;
+  height: 140px;
+  position: absolute;
+  background-size: cover;
+  transition: transform 0.1s, background-image 0.1s, filter 0.1s;
+}
+
+#left_thumb {
+  background-image: url("../assets/sticks/LeftStick.png");
+}
+
+#right_thumb {
+  background-image: url("../assets/sticks/RightStick.png");
+}
+
+#left_thumb.pressed {
+  background-image: url("../assets/pressed/stick/LStickPressed.png");
+}
+
+#right_thumb.pressed {
+  background-image: url("../assets/pressed/stick/RStickPressed.png");
+}
+
+/* Shoulder Buttons */
+
+#r1,
+#r2,
+#l1,
+#l2 {
+  width: 110px;
+  height: 110px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#r1 {
+  background-image: url("../assets/shoulders/R1.png");
+}
+
+#r2 {
+  background-image: url("../assets/shoulders/R2.png");
+}
+
+#l1 {
+  background-image: url("../assets/shoulders/L1.png");
+}
+
+#l2 {
+  background-image: url("../assets/shoulders/L2.png");
+}
+
+#r1.pressed {
+  background-image: url("../assets/pressed/shoulder/R1Pressed.png");
+}
+
+#r2.pressed {
+  background-image: url("../assets/pressed/shoulder/R2Pressed.png");
+}
+
+#l1.pressed {
+  background-image: url("../assets/pressed/shoulder/L1Pressed.png");
+}
+
+#l2.pressed {
+  background-image: url("../assets/pressed/shoulder/L2Pressed.png");
+}
+
+/* Menu Buttons */
+
+#start,
+#select,
+#ps {
+  width: 55px;
+  height: 55px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#start {
+  background-image: url("../assets/menu/Start.png");
+}
+
+#select {
+  background-image: url("../assets/menu/Select.png");
+}
+
+#ps {
+  background-image: url("../assets/menu/Analog.png");
+}
+
+#start.pressed {
+  background-image: url("../assets/pressed/menu/StartPressed.png");
+}
+
+#select.pressed {
+  background-image: url("../assets/pressed/menu/SelectPressed.png");
+}
+
+/* LED */
+
+.led {
+  width: 35px;
+  height: 13px;
+  background-color: grey;
+  position: absolute;
+  top: 340px;
+  left: 420px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.led.connected {
+  background-color: red;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}

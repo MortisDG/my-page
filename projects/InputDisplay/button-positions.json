@@ -1,0 +1,19 @@
+{
+  "cross": { "left": "733.6px", "top": "435.5px" },
+  "circle": { "left": "808.5px", "top": "355.5px" },
+  "square": { "left": "656.183px", "top": "355.5px" },
+  "triangle": { "left": "733.683px", "top": "280.5px" },
+  "l1": { "left": "143.183px", "top": "122.5px" },
+  "r1": { "left": "709.183px", "top": "123.5px" },
+  "l2": { "left": "284.683px", "top": "198.5px" },
+  "r2": { "left": "562.6px", "top": "200.5px" },
+  "select": { "left": "365.183px", "top": "380.5px" },
+  "start": { "left": "541.183px", "top": "375.5px" },
+  "dpad_up": { "left": "162.6px", "top": "313.5px" },
+  "dpad_down": { "left": "162.6px", "top": "406.5px" },
+  "dpad_left": { "left": "111.6px", "top": "363.5px" },
+  "dpad_right": { "left": "204.6px", "top": "364.5px" },
+  "ps": { "left": "455.1px", "top": "470.5px" },
+  "left_thumb": { "left": "262.583px", "top": "466.5px" },
+  "right_thumb": { "left": "556.883px", "top": "467.5px" }
+}

@@ -1,0 +1,132 @@
+/* Navbar Button Styles */
+#navbarButton {
+  position: fixed;
+  left: 0px;
+  top: 50%;
+  transform: translateY(-50%) rotate(-90deg);
+  transform-origin: left center;
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  cursor: pointer;
+  z-index: 1000;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+#navbarButton:hover {
+  background-color: #444;
+  transform: translateY(-50%) rotate(-90deg) scale(1.05);
+}
+
+/* Navbar Styles */
+.navbar {
+  position: fixed;
+  left: -200px;
+  top: 0;
+  width: 200px;
+  height: 100%;
+  background-color: #1a1a1a;
+  display: flex;
+  flex-direction: column;
+  transition: left 0.5s ease;
+  animation: glow 5s infinite;
+  box-shadow: 0 0 10px var(--glow-color-1), 0 0 20px 2px var(--glow-color-2);
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0px 0px 20px 1px rgba(255, 0, 0, 0.5);
+  }
+  25% {
+    box-shadow: 0px 0px 60px 2px rgba(0, 17, 255, 0.5);
+  }
+  50% {
+    box-shadow: 0px 0px 20px 2px rgba(255, 0, 0, 0.5);
+  }
+  75% {
+    box-shadow: 0px 0px 60px 2px rgba(0, 17, 255, 0.5);
+  }
+  100% {
+    box-shadow: 0px 0px 20px 1px rgba(255, 0, 0, 0.5);
+  }
+}
+
+#navbar.open {
+  left: 0;
+}
+
+.navbar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.navbar li {
+  padding: 15px;
+  color: white;
+  cursor: pointer;
+  text-align: center;
+  transition: transform 0.2s ease-in-out;
+}
+
+.navbar li:hover {
+  transform: scale(1.25);
+  animation: text-glow 5s infinite;
+  filter: drop-shadow(0 0 10px var(--glow-color-1))
+    drop-shadow(0 0 20px 2px var(--glow-color-2));
+}
+
+@keyframes text-glow {
+  0% {
+    filter: drop-shadow(0 0 10px rgba(255, 0, 0, 1));
+  }
+  25% {
+    filter: drop-shadow(0 0 10px rgba(25, 0, 255, 1));
+  }
+  50% {
+    filter: drop-shadow(0 0 10px rgba(255, 0, 0, 1));
+  }
+  75% {
+    filter: drop-shadow(0 0 10px rgba(25, 0, 255, 1));
+  }
+  100% {
+    filter: drop-shadow(0 0 10px rgba(255, 0, 0, 1));
+  }
+}
+
+/* Settings Panel Styles */
+#settingsPanel {
+  position: fixed;
+  left: -100%;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  transition: left 0.8s ease-in-out;
+}
+
+#settingsPanel.open {
+  left: 0;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.tab-link.active {
+  font-weight: bold;
+}
