@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function copyURL() {
   const userId = getUserId();
-  const url = `${window.location.origin}/stream?user=${userId}`;
+  const url = `${window.location.origin}/#stream&user=${userId}`;
   navigator.clipboard
     .writeText(url)
     .then(() => {
