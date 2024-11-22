@@ -68,19 +68,17 @@ function copyURL() {
     });
 }
 
-function getUserId() {
-  let userId = localStorage.getItem("userId");
-  if (!userId) {
-    userId = generateUUID();
-    localStorage.setItem("userId", userId);
-  }
-  return userId;
+function getStreamUserId() {
+  const hash = window.location.hash; // Get the hash part of the URL
+  const params = new URLSearchParams(hash.slice(1).replace("&", "?")); // Convert hash to query string for parsing
+  return params.get("user");
 }
 
-function generateUUID() {
-  return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (c) {
-    const r = (Math.random() * 16) | 0,
-      v = c === "x" ? r : (r & 0x3) | 0x8;
-    return v.toString(16);
-  });
-}
+// Example usage
+document.addEventListener("DOMContentLoaded", () => {
+  const userId = getStreamUserId();
+  if (userId) {
+    console.log(`Stream user ID: ${userId}`);
+    // Perform actions for the user, such as loading specific content
+  }
+});
