@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/settings.css">
+    <link rel="stylesheet" href="css/changelogs.css">
     <title>Input Display</title>
 </head>
 
@@ -68,6 +69,7 @@
                 <button id="savePositions">Save Positions</button>
                 <button id="uploadSettings">Upload Settings</button>
                 <input type="file" id="fileInput" accept="application/json" style="display: none;" />
+                <button id="saveMappingButton">Save Mapping</button>
             </div>
         </div>
         <div class="tab-content hidden" id="buttonMapping">
@@ -452,29 +454,35 @@
             <button id="saveMapping">Save Mapping</button>
         </div>
         <div class="tab-content hidden" id="profileTab">
-            <button id="setDefaultLayout">Set as Default</button>
+            <!-- <button id="setDefaultLayout">Set as Default</button>
             <button id="createNewLayout">Create New Layout</button>
             <select id="layoutDropdown">
-                <option value="">Select a layout</option>
+                <option value="">Select a layout</option> -->
             </select>
-            <input type="text" id="layoutNameInput" placeholder="Enter layout name">
+            <!-- <input type="text" id="layoutNameInput" placeholder="Enter layout name"> -->
             <div id="layoutContainer"></div>
-            <button id="saveLayout">Save Layout</button>
-            <p id="FilePathInfo">Layout file path: "\AppData\Roaming\ds4-input-display\layout.json"</p>
-            <p id="layoutInfo2">As of now only the settings such as background will be saved.</p>
-            <p id="layoutInfo2">More will be added soon.</p>
+            <!-- <button id="saveLayout">Save Layout</button> -->
+            <p id="FilePathInfo">UNDER CONSTRUCTION</p>
             <!-- <button id="removeLayoutButton">Remove Layout</button> --> <!-- Not yet implemented -->
         </div>
         <div class="tab-content hidden" id="changelogs">
             <ul class="changelogtext">
-                <li>[/] TBA</li>
+                <li>[+] Switched from Electron to Web Base</li>
+                <li>[+] Added Copy URL button</li>
+                <li>[=] Various Bug Fixes</li>
+                <li>[\] Next Update will fix button placement after pasting URL into OBS</li>
+                <li>[\] Next Update should fix button placement / mapping into localstorage without the need to upload
+                    the file.</li>
             </ul>
         </div>
         <div class="tab-content hidden" id="custom-assets">
-            <input type="file" id="customAssetInput" multiple>
+            <!-- <input type="file" id="customAssetInput" multiple>
             <button id="saveConfig">Save Configuration</button>
             <button id="downloadConfig">Download Configuration</button>
-            <input type="file" id="uploadConfig" accept=".json">
+            <input type="file" id="uploadConfig" accept=".json"> -->
+            <ul class="custom-assets-text">
+                <li>TO BE IMPLEMENTED. STAY TUNED</li>
+            </ul>
         </div>
         <footer>
             Made by Mortis <br>

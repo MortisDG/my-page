@@ -22,7 +22,8 @@ document.addEventListener("DOMContentLoaded", () => {
     16: "ps",
   };
 
-  const buttonMappings = {
+  const savedMappings = JSON.parse(localStorage.getItem("buttonMapping"));
+  const buttonMappings = savedMappings || {
     triangle: "triangle",
     cross: "cross",
     circle: "circle",
@@ -45,7 +46,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const previousButtonStates = new Array(17).fill(false);
   const deadzone = 0.2;
 
-  // Fetch JSON file helper
   async function fetchJSON(filePath) {
     try {
       const response = await fetch(filePath);
@@ -58,27 +58,26 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Load and merge mappings
   async function loadMappings() {
     const mappings = await fetchJSON(mappingsFilePath);
     Object.assign(buttonMappings, mappings);
   }
 
-  // Save mappings to localStorage
-  function saveMappings() {
-    const mappingElements = document.querySelectorAll(".button-map");
-    mappingElements.forEach((element) => {
-      const buttonId = element.id.replace("map", "").toLowerCase();
-      buttonMappings[buttonId] = element.value;
+  function saveMapping() {
+    const newMapping = {};
+    document.querySelectorAll(".mapping-input").forEach((input) => {
+      newMapping[input.id] = input.value.trim();
     });
-    localStorage.setItem("buttonMappings", JSON.stringify(buttonMappings));
+
+    localStorage.setItem("buttonMapping", JSON.stringify(newMapping));
+
+    alert("Mapping saved!");
   }
 
   document
-    .getElementById("saveMapping")
-    .addEventListener("click", saveMappings);
+    .getElementById("saveMappingButton")
+    .addEventListener("click", saveMapping);
 
-  // Handle gamepad input
   window.addEventListener("gamepadconnected", (event) => {
     console.log(
       `Gamepad connected at index ${event.gamepad.index}: ${event.gamepad.id}.`
@@ -142,7 +141,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Load positions and render
   async function loadPositions() {
     const positions = await fetchJSON(positionsFilePath);
     Object.entries(positions).forEach(([button, pos]) => {
@@ -174,21 +172,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
     button.addEventListener("mousedown", (e) => {
       if (lockLayoutCheckbox.checked) return;
+
       dragging = true;
-      offsetX = e.clientX - button.getBoundingClientRect().left;
-      offsetY = e.clientY - button.getBoundingClientRect().top;
+
+      const rect = button.getBoundingClientRect();
+      offsetX = e.clientX - rect.left;
+      offsetY = e.clientY - rect.top;
+
+      button.style.cursor = "grabbing";
     });
 
     document.addEventListener("mousemove", (e) => {
       if (!dragging) return;
-      button.style.left = `${e.clientX - offsetX}px`;
-      button.style.top = `${e.clientY - offsetY}px`;
+
+      const containerRect = button.offsetParent.getBoundingClientRect();
+      const newX = e.clientX - containerRect.left - offsetX;
+      const newY = e.clientY - containerRect.top - offsetY;
+
+      button.style.position = "absolute";
+      button.style.left = `${newX}px`;
+      button.style.top = `${newY}px`;
     });
 
     document.addEventListener("mouseup", () => {
       if (dragging) {
         dragging = false;
         savePositions();
+        button.style.cursor = "grab";
       }
     });
   }
@@ -217,7 +227,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Load data and initialize
   (async function initialize() {
     await loadMappings();
     await loadPositions();

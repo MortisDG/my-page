@@ -45,6 +45,7 @@ footer {
   background-size: cover;
   background-repeat: no-repeat;
   margin: auto;
+  cursor: grab;
 }
 
 #cross {
@@ -89,6 +90,7 @@ footer {
   height: 70px;
   background-size: contain;
   background-repeat: no-repeat;
+  cursor: grab;
 }
 
 #dpad_up {
@@ -147,6 +149,7 @@ footer {
   position: absolute;
   background-size: cover;
   transition: transform 0.1s, background-image 0.1s, filter 0.1s;
+  cursor: grab;
 }
 
 #left_thumb {
@@ -175,6 +178,7 @@ footer {
   height: 110px;
   background-size: contain;
   background-repeat: no-repeat;
+  cursor: grab;
 }
 
 #r1 {
@@ -218,6 +222,8 @@ footer {
   height: 55px;
   background-size: contain;
   background-repeat: no-repeat;
+  cursor: grab;
+  position: absolute;
 }
 
 #start {
