@@ -1,0 +1,35 @@
+.changelogtext,
+.custom-assets-text,
+.tutorialtext,
+.donatetext {
+  text-align: left;
+  list-style-type: none;
+  padding: 0;
+  font-size: 18px;
+}
+
+.changelogtext li,
+.custom-assets-text li,
+.tutorialtext li,
+.donatetext {
+  margin-bottom: 10px;
+}
+
+.donation-container {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.donation-container a {
+  display: inline-block;
+  text-decoration: none;
+  color: #00f7ff;
+  transition: color 0.3s ease-in-out;
+}
+
+.donation-container a:hover {
+  color: #ff0000;
+}

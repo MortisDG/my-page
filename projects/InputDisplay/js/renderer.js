@@ -41,6 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
     dpad_left: "dpad_left",
     dpad_right: "dpad_right",
     ps: "ps",
+    led: "led",
   };
 
   const previousButtonStates = new Array(17).fill(false);
@@ -157,6 +158,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document
       .querySelectorAll(".button, .dpad, .thumb, .shoulder, .led")
       .forEach((button) => {
+        console.log(`Processing element: ${button.id}`);
         positions[button.id] = {
           left: button.style.left,
           top: button.style.top,

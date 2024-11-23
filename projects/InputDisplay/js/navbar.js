@@ -45,7 +45,8 @@ document.addEventListener("DOMContentLoaded", () => {
       tabName === "profileTab" ||
       tabName === "changelogs" ||
       tabName === "custom-assets" ||
-      tabName === "tutorialTab"
+      tabName === "tutorialTab" ||
+      tabName === "donateTab"
     ) {
       settingsPanel.classList.add("open");
       navbar.classList.remove("open");

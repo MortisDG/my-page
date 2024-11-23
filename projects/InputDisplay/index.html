@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/settings.css">
-    <link rel="stylesheet" href="css/changelogs.css">
+    <link rel="stylesheet" href="css/text-styling.css">
     <title>Input Display</title>
 </head>
 
@@ -30,6 +30,7 @@
         <div id="ps" class="button"></div>
         <div id="left_thumb" class="button thumb"></div>
         <div id="right_thumb" class="button thumb"></div>
+        <div id="led" class="led"></div>
     </div>
     <div id="navbarButton"></div>
     <div id="navbar" class="navbar hidden">
@@ -40,6 +41,7 @@
             <li class="tab-link" data-tab="changelogs" onclick="openTab(event, 'changelogs')">Changelogs</li>
             <li class="tab-link" data-tab="custom-assets" onclick="openTab(event, 'custom-assets')">Custom Assets</li>
             <li class="tab-link" data-tab="tutorialTab" onclick="openTab(event, 'tutorialTab')">Guide</li>
+            <li class="tab-link" data-tab="donateTab" onclick="openTab(event, 'donateTab')">Donate</li>
             <li class="tab-link" onclick="copyURL()">Copy URL</li>
         </ul>
     </div>
@@ -472,7 +474,29 @@
                 <li>[=] Various Bug Fixes</li>
                 <li>[\] Next Update will fix button placement after pasting URL into OBS</li>
                 <li>[\] Next Update should fix button placement / mapping into localstorage without the need to upload
-                    the file.</li>
+                    the file.
+                </li>
+            </ul>
+        </div>
+        <div class="tab-content hidden" id="tutorialTab">
+            <ul class="tutorialtext">
+                <li>If you copy the URL, create a Browser Source in OBS and paste the link into it. <br>
+                    Once pasted into it, be sure to change the resolution to 1920x1080! From there on <br>
+                    you can resize the window to any size you want and crop it as much as you'd like! <br>
+                    And yes, I'm well aware that the alignment is currently messed up in non fullscreen, <br>
+                    until this is fixed, making it fullscreen is the best way to fix it! <br>
+                    For further updates, check the Changelogs! :D
+                </li>
+            </ul>
+        </div>
+        <div class="tab-content hidden" id="donateTab">
+            <ul class="donatetext">
+                <li>This Project is as of now completely a solo work and done in my freetime. <br>
+                    Donations are absolutely not mandatory but much appreciated! <br>
+                    <div class="donation-container">
+                        <a href="https://ko-fi.com/mortis55759" target="_blank">Donate!</a>
+                    </div>
+                </li>
             </ul>
         </div>
         <div class="tab-content hidden" id="custom-assets">
