@@ -44,6 +44,9 @@
             <li class="tab-link" data-tab="donateTab" onclick="openTab(event, 'donateTab')">Donate</li>
             <li class="tab-link" onclick="copyURL()">Copy URL</li>
         </ul>
+        <a href="/my-page/index.html" class="back-button">
+            <div class="back-button-text">Back</div>
+        </a>
     </div>
     <div id="settingsPanel" class="panel hidden">
         <div class="tab-content active" id="settingsTab">
@@ -451,7 +454,6 @@
                         <option value="dpad_right">D-Pad Right</option>
                     </select>
                 </div>
-                <!-- Add mappings for other buttons similarly -->
             </div>
             <button id="saveMapping">Save Mapping</button>
         </div>
@@ -518,5 +520,6 @@
 <script src="js/navbar.js"></script>
 <script src="js/renderer.js"></script>"
 <script src="js/cookies.js"></script>
+<script src="js/buttonMapping.js"></script>
 
 </html>

@@ -20,7 +20,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (navbarButton) {
     navbarButton.addEventListener("click", () => {
-      navbar.classList.toggle("open");
+      const isNavbarOpen = navbar.classList.toggle("open");
+      navbarButton.style.left = isNavbarOpen ? "200px" : "0px";
       settingsPanel.classList.remove("open");
     });
   }
@@ -38,7 +39,6 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById(tabName).classList.add("active");
     evt.currentTarget.classList.add("active");
 
-    // Open the settings panel if the "Settings", "Button Mapping", or "Layouts" tab is clicked
     if (
       tabName === "settingsTab" ||
       tabName === "buttonMapping" ||
