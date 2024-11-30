@@ -47,6 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const previousButtonStates = new Array(17).fill(false);
   const deadzone = 0.2;
 
+  // Function to fetch JSON files asynchronously
   async function fetchJSON(filePath) {
     try {
       const response = await fetch(filePath);
@@ -59,11 +60,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  // Load saved mappings from the mappings file
   async function loadMappings() {
     const mappings = await fetchJSON(mappingsFilePath);
     Object.assign(buttonMappings, mappings);
   }
 
+  // Save button mappings to localStorage
   function saveMapping() {
     const newMapping = {};
     document.querySelectorAll(".mapping-input").forEach((input) => {
@@ -71,7 +74,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     localStorage.setItem("buttonMapping", JSON.stringify(newMapping));
-
     alert("Mapping saved!");
   }
 
@@ -79,6 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .getElementById("saveMappingButton")
     .addEventListener("click", saveMapping);
 
+  // Handle gamepad connection
   window.addEventListener("gamepadconnected", (event) => {
     console.log(
       `Gamepad connected at index ${event.gamepad.index}: ${event.gamepad.id}.`
@@ -86,6 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
     requestAnimationFrame(updateStatus);
   });
 
+  // Function to update gamepad status
   function updateStatus() {
     const gamepads = navigator.getGamepads();
     const gp = gamepads[0];
@@ -129,10 +133,12 @@ document.addEventListener("DOMContentLoaded", () => {
     requestAnimationFrame(updateStatus);
   }
 
+  // Apply deadzone to joystick input
   function applyDeadzone(value, threshold) {
     return Math.abs(value) < threshold ? 0 : value;
   }
 
+  // Update joystick visual elements
   function updateJoystick(joystickId, position) {
     const joystickElement = document.getElementById(joystickId);
     if (joystickElement) {
@@ -142,6 +148,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  // Load button positions from positions file
   async function loadPositions() {
     const positions = await fetchJSON(positionsFilePath);
     Object.entries(positions).forEach(([button, pos]) => {
@@ -153,6 +160,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Save button positions to localStorage
   function savePositions() {
     const positions = {};
     document
@@ -167,6 +175,7 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("buttonPositions", JSON.stringify(positions));
   }
 
+  // Enable drag functionality for buttons
   function enableDrag(button) {
     let offsetX,
       offsetY,
@@ -205,6 +214,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Load saved lock layout state
   const buttons = document.querySelectorAll(
     ".button, .dpad, .thumb, .shoulder, .led"
   );
@@ -218,10 +228,12 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("lockLayoutState", lockLayoutCheckbox.checked);
   });
 
+  // Enable drag on all buttons
   buttons.forEach((button) => {
     enableDrag(button);
   });
 
+  // Log button presses for debugging
   function logButtonPress(index, pressed) {
     const buttonName = ds4Buttons[index];
     if (buttonName) {
@@ -229,6 +241,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  // Initialize the mappings and positions on page load
   (async function initialize() {
     await loadMappings();
     await loadPositions();

@@ -103,3 +103,9 @@ function applyPositions(positions) {
     }
   });
 }
+
+// Optional: Clear the stored positions if needed
+function clearStoredPositions() {
+  localStorage.removeItem("buttonPositions");
+  console.log("Stored positions cleared!");
+}

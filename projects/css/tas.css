@@ -20,7 +20,7 @@ h1 {
   text-shadow: #202020 1px 1px 2px;
 }
 
-.WIP {
+/* .WIP {
   text-align: center;
   color: white;
   font-size: 20px;
@@ -28,4 +28,75 @@ h1 {
   color: #ff0000;
   text-decoration: none;
   margin-top: 50px;
+} */
+
+table {
+  margin: 20px auto;
+  border-collapse: collapse;
+  width: 60%;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+td {
+  color: #ddd;
+}
+
+th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+.total-progress {
+  margin: 20px auto;
+  width: 60%;
+  text-align: center;
+}
+
+.progress-bar {
+  background-color: #ddd;
+  height: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 5px;
+}
+
+.progress-fill {
+  background-color: #8f06ff;
+  height: 100%;
+  width: 0%;
+  transition: width 0.3s ease;
+}
+
+label {
+  color: #ddd;
+  font-weight: bold;
+}
+
+.finalTime p {
+  text-align: center;
+  color: #ddd;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.back-button {
+  text-decoration: none;
+  font-size: 24px;
+  color: white;
+  transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+  cursor: pointer;
+  top: 20px;
+  left: 20px;
+  position: absolute;
+}
+
+.back-button:hover {
+  color: #ff0000;
+  transform: scale(1.2);
 }
