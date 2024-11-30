@@ -9,7 +9,7 @@ function updateProgressBar() {
   let rowCount = 0;
 
   rows.forEach((row) => {
-    const progressCell = row.children[1]; // Second cell (progress %)
+    const progressCell = row.children[1];
     const progressValue = parseFloat(progressCell.innerText.replace("%", ""));
 
     if (!isNaN(progressValue)) {
@@ -31,8 +31,8 @@ function updateFinalTime() {
   let totalSeconds = 0;
 
   rows.forEach((row) => {
-    const timeCell = row.children[3]; // Fourth cell (time)
-    const timeText = timeCell.innerText; // Format: HH:MM:SS.ss
+    const timeCell = row.children[3];
+    const timeText = timeCell.innerText;
 
     if (timeText !== "00:00.00") {
       const [minutes, seconds] = timeText.split(":").map(parseFloat);
@@ -40,7 +40,6 @@ function updateFinalTime() {
     }
   });
 
-  // Convert total seconds to MM:SS.ss format
   const finalMinutes = Math.floor(totalSeconds / 60);
   const finalSeconds = (totalSeconds % 60).toFixed(2);
 
