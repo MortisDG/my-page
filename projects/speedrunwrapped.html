@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speedrun Wrapped</title>
+    <link rel="stylesheet" href="css/wrapped.css">
+</head>
+
+<body>
+
+    <div id="spinner" class="spinner hidden">
+        <div class="spinner-icon"></div>
+        <p class="loading-text">Loading...</p>
+    </div>
+
+    <div class="container">
+        <h1>Speedrun Wrapped</h1>
+        <label for="username" title="Enter Username"></label>
+        <input type="text" id="username" name="username" placeholder="Enter Username" />
+        <input type="number" id="year" placeholder="Enter a year (e.g., 2024)" />
+        <div>
+            <button id="submit">Submit</button>
+            <button id="fetchData">Generate Wrapped</button>
+            <p>Please enter a username and select a year to generate your Speedrun.com Wrapped.</p>
+        </div>
+
+        <div id="wrapped" class="hidden">
+            <h2>Your Speedrun.com Wrapped</h2>
+            <div id="sideBySideContainer" class="side-by-side">
+                <div id="topGames"></div>
+                <div id="topCategory"></div>
+                <div id="minutesSpent"></div>
+            </div>
+        </div>
+    </div>
+    <script src="js/wrapped.js"></script>
+</body>
+
+</html>

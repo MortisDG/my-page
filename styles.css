@@ -1,14 +1,66 @@
 body {
   font-family: Arial, sans-serif;
-  margin: 0;
+  margin: auto;
   padding: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   height: 100vh;
-  background-color: #202020;
+  overflow: auto;
+  background: #161616;
+  background-size: 400% 400%;
+  background-attachment: fixed;
+  animation: gradient 15s ease infinite;
   overflow-x: hidden;
+}
+
+.wave {
+  background: rgba(68, 68, 68, 0.25);
+  border-radius: 1000% 1000% 0 0;
+  position: fixed;
+  width: 200%;
+  height: 10em;
+  animation: wave 10s -3s linear infinite;
+  transform: translate3d(0, 0, 0);
+  opacity: 0.8;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.wave:nth-of-type(2) {
+  bottom: -1.25em;
+  animation: wave 18s linear reverse infinite;
+  opacity: 0.8;
+}
+
+.wave:nth-of-type(3) {
+  bottom: -2.5em;
+  animation: wave 20s -1s reverse infinite;
+  opacity: 0.9;
+}
+
+@keyframes wave {
+  2% {
+    transform: translateX(1);
+  }
+
+  25% {
+    transform: translateX(-25%);
+  }
+
+  50% {
+    transform: translateX(-50%);
+  }
+
+  75% {
+    transform: translateX(-25%);
+  }
+
+  100% {
+    transform: translateX(1);
+  }
 }
 
 header {
@@ -153,4 +205,28 @@ h3 {
   align-items: center;
   gap: 8px;
   text-decoration: none;
+}
+
+.clock {
+  opacity: 1;
+  position: absolute;
+  top: 2.5%;
+  left: 8.5%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 20px;
+  z-index: 3;
+}
+
+.clock .clock-container {
+  width: auto;
+  border: none;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+.clock .clock-container p {
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 5px black;
+  margin: 0;
 }
